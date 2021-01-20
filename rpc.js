@@ -1,9 +1,10 @@
-const RPC = require('discord-rpc')
+const RPC = require('discord-rpc');
 const client = new RPC.Client({ transport: 'ipc' });
-const config = require('./config.js')
+const config = require('./config.js');
 const fs = require('fs');
+const clientId = config.CLIENT_ID;
 
-const clientId = config.CLIENT_ID
+// Setting the activity
 client.on('ready', () => {
 
     client.request('SET_ACTIVITY', {
@@ -22,7 +23,7 @@ client.on('ready', () => {
         }
     })
 
-})
+});
 
-client.login({ clientId });
+client.login({clientId});
 
